@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
 
 import authRoutes from "./routes/auth.route.js";
 
@@ -15,6 +16,7 @@ const PORT = process.env.PORT || 5000;
 
 // Use Express's built-in JSON middleware to parse incoming JSON requests
 app.use(express.json());
+app.use(cookieParser());
 
 // Mount the authentication routes under the /api/auth path
 app.use("/api/auth", authRoutes);
